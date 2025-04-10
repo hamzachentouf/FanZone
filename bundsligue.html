@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bundesliga Jerseys - FanZone</title>
+    <link rel="icon" href="img/logo/logo_blanche.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 60px;
+        }
+        .league-logo {
+    height: 100px;
+    margin-right: 20px;  /* إضافة مسافة بين الشعار والعنوان */
+    vertical-align: middle; /* لضبط الشعار ليكون في منتصف العنوان */
+}
+
+        header {
+            background-color: #121212;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 2em;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #121212;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(52, 51, 51, 0.2);
+            top: 0;
+            left: 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-align: center;
+            padding: 10px 30px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        /* Logo */
+        .logo {
+            height: 60px;
+            margin-left: 20px;
+            position: fixed;
+            top: 10px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center; /* محاذاة محتويات العنصر إلى المنتصف */
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+        }
+
+        .product img {
+            width: 180px;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto; /* إضافة مسافة تلقائية من الجانبين */
+        }
+
+        .product-content {
+            padding: 15px;
+        }
+
+        .product h3 {
+            font-size: 1.2em;
+            margin: 0 0 10px;
+        }
+
+        .product p {
+            color: #666;
+            margin: 0 0 10px;
+        }
+
+        .product .price {
+            color: #007BFF;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        .back{
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .button2 {
+            vertical-align: middle;
+            padding: 12px 24px;
+            font-size: 1em;
+            color: #fff;
+            background-color:rgb(233, 0, 0);
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        .button2:hover {
+            background-color: #900000;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #121212;
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon i {
+            margin: 0 10px;
+        }
+
+        .social-icon.whatsapp {
+            color: #25D366;
+        }
+
+        .social-icon.instagram {
+            color: #E4405F;
+        }
+
+        .social-icon:hover {
+            opacity: 0.8;
+        }
+        @media (max-width: 767px) {
+            .img_logo{
+                display: none;
+            }
+            .navbar {
+                display: flex;
+                align-items: center; /* توسيط الروابط */
+            }
+            .navbar a {
+                font-size: 16px; /* تصغير حجم النص */
+                padding: 10px 14px; /* تصغير التباعد بين العناصر */
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">الرئيسية</a>
+        <a href="products.html">منتجات</a>
+        <a href="contact.html">اتصل بنا</a>
+        <a href="about.html">معلومات عنا</a>
+    </div>
+    <div class="img_logo">
+        <a href="index.html"><img src="img/logo/logo_blanche.png" alt="FanZone Logo" class="logo"></a> <!-- استبدل "your-logo.png" برابط الشعار الخاص بك -->
+    </div>
+    <header>
+        <img src="img/logo/bundsleague.jpeg" alt="Bundesliga Logo" class="league-logo">
+        <h1>Bundesliga أقمصة </h1>
+        <p>اكتشف أفضل قمصان الدوري الألماني.</p>
+    </header>
+
+    <!-- Product Grid for Premier League Jerseys -->
+    <div class="product-grid">
+        <div class="product">
+            <a href="products_detail.html?id=13"><img src="img/shirts/bayar.png" alt="Bayern Munich قميص"></a>
+            <div class="product-content">
+                <h3>Bayern Munich </h3>
+                <p>Player version</p>
+                <span class="price">229 DH</span>
+                <br>
+                <a href="products_detail.html?id=13" class="button">عرض التفاصيل</a>
+            </div>
+        </div>
+        <div class="product">
+            <a href="products_detail.html?id=77"><img src="img/shirts/Bayern Munich 3.png" alt="Bayern Munich قميص"></a>
+            <div class="product-content">
+                <h3>Bayern Munich </h3>
+                <p>Player version</p>
+                <span class="price">229 DH</span>
+                <br>
+                <a href="products_detail.html?id=77" class="button">عرض التفاصيل</a>
+            </div>
+        </div>
+        <div class="product">
+            <a href="products_detail.html?id=14"><img src="img/shirts/liverkuzen.png" alt="Bayer 04 Leverkusen قميص"></a>
+            <div class="product-content">
+                <h3>Bayer 04 Leverkusen </h3>
+                <p>Player version</p>
+                <span class="price">229 DH</span>
+                <br>
+                <a href="products_detail.html?id=14" class="button">عرض التفاصيل</a>
+            </div>
+        </div>
+        <div class="product">
+            <a href="products_detail.html?id=15"><img src="img/shirts/Borussia Dortmund.png" alt="Borussia Dortmund قميص"></a>
+            <div class="product-content">
+                <h3>Borussia Dortmund </h3>
+                <p>Player version</p>
+                <span class="price">239 DH</span>
+                <br>
+                <a href="products_detail.html?id=15" class="button">عرض التفاصيل</a>
+            </div>
+        </div>
+        <div class="product">
+            <a href="products_detail.html?id=78"><img src="img/shirts/Borussia Dortmund 3.png" alt="Borussia Dortmund قميص"></a>
+            <div class="product-content">
+                <h3>Borussia Dortmund </h3>
+                <p>Player version</p>
+                <span class="price">239 DH</span>
+                <br>
+                <a href="products_detail.html?id=78" class="button">عرض التفاصيل</a>
+            </div>
+        </div>
+        <div class="product">
+            <a href="products_detail.html?id=79"><img src="img/shirts/Borussia Dortmund 5.png" alt="Borussia Dortmund قميص"></a>
+            <div class="product-content">
+                <h3>Borussia Dortmund </h3>
+                <p>Player version</p>
+                <span class="price">239 DH</span>
+                <br>
+                <a href="products_detail.html?id=79" class="button">عرض التفاصيل</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="back">
+        <a href="index.html" class="button2">الرجوع</a>
+    </div>
+
+    <footer>
+        <p>All rights reserved &copy; 2025 FanZone Store</p>
+    </footer>
+
+    <div class="social-icons">
+        <a href="https://wa.me/+212713837457" target="_blank" class="social-icon whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/fanzone04/" target="_blank" class="social-icon instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <script>
+        
+
+    </script>
+
+</body>
+</html>
